@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Notation 100 m Dash v1</title>
+  <link rel="stylesheet" href="../shared/shared.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../shared/navigation.css" />
+</head>
+<body>
+  <a class="campaign-return" href="../index.html" aria-label="Return to Scientific Notation campaign">← Return to Campaign</a>
+  <main class="game-shell">
+    <section class="control-panel" aria-labelledby="game-title">
+      <p class="eyebrow">Chemistry Skills Practice</p>
+      <h1 id="game-title">Scientific Notation 100 m Dash</h1>
+      <p class="instructions">
+        Convert each number from scientific notation into ordinary decimal notation. Every correct answer moves the runner 10 meters.
+      </p>
+
+      <div class="score-row">
+        <span>Distance: <strong id="score">0</strong> m / 100 m</span>
+        <span>Problem: <strong id="question-number">1</strong></span>
+      </div>
+
+      <section class="problem-card">
+        <p class="prompt-label">Write in ordinary decimal notation:</p>
+        <p id="problem" class="problem">Loading…</p>
+
+        <label for="answer">Numerical answer</label>
+        <input
+          id="answer"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="Enter the full decimal value"
+        />
+
+        <button id="submit-button" type="button">Check Answer</button>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+
+        <details class="rule-box">
+          <summary>Reminder</summary>
+          <p>
+            A positive exponent moves the decimal to the right. A negative exponent moves it to the left.
+          </p>
+        </details>
+      </section>
+
+      <button id="restart-button" class="restart" type="button">Restart Race</button>
+    </section>
+
+    <section class="track-scene" aria-label="Running track progress animation">
+      <div class="stadium-sky">
+        <div class="sun"></div>
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+      </div>
+
+      <div class="stands">
+        <div class="crowd"></div>
+      </div>
+
+      <div class="track">
+        <div class="lane lane-one"></div>
+        <div class="lane lane-two"></div>
+        <div class="lane lane-three"></div>
+
+        <div id="distance-markers" class="distance-markers" aria-hidden="true"></div>
+
+        <div id="runner" class="runner" aria-hidden="true">
+          <div class="head"></div>
+          <div class="torso"></div>
+          <div class="arm arm-left"></div>
+          <div class="arm arm-right"></div>
+          <div class="leg leg-left"></div>
+          <div class="leg leg-right"></div>
+        </div>
+
+        <div class="finish-post finish-left"></div>
+        <div class="finish-post finish-right"></div>
+        <div class="finish-banner">FINISH</div>
+      </div>
+
+      <div class="progress-strip">
+        <span>START</span>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span>FINISH</span>
+      </div>
+
+      <p id="progress-message" class="progress-message">
+        Reach 100 meters to finish the race.
+      </p>
+    </section>
+  </main>
+
+  <script src="../../shared/academy.js" data-academy-href="../../index.html"></script>
+  <script src="../shared/shared.js"></script>
+  <script src="script.js"></script>
+  <script src="../../shared/navigation.js" data-academy-href="../../index.html" data-campaign-href="../index.html"></script>
+</body>
+</html>

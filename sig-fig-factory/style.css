@@ -1,0 +1,542 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #172033;
+  background: #eef2f5;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.game-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(350px, 0.95fr) minmax(420px, 1.05fr);
+}
+
+.control-panel {
+  padding: clamp(24px, 5vw, 62px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  z-index: 2;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #4f6272;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 4.7rem);
+  line-height: 0.96;
+}
+
+.instructions {
+  max-width: 610px;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.score-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 17px 0;
+}
+
+.problem-card {
+  border: 2px solid #c7d2da;
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 12px 28px rgba(31, 51, 71, 0.08);
+}
+
+.prompt-label {
+  margin: 0;
+  font-weight: 800;
+}
+
+.problem {
+  min-height: 68px;
+  margin: 12px 0 20px;
+  display: flex;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(50px, 1fr));
+  gap: 10px;
+}
+
+.choice-button {
+  margin: 0;
+  padding: 14px 8px;
+  border: 2px solid #9bacb9;
+  border-radius: 12px;
+  background: #f8fafb;
+  color: #172033;
+  font-size: 1.25rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.choice-button:hover,
+.choice-button:focus-visible {
+  border-color: #345f7d;
+  background: #edf5fa;
+}
+
+.choice-button:disabled {
+  cursor: default;
+}
+
+.choice-button.correct-choice {
+  border-color: #237346;
+  background: #dff4e7;
+  color: #14542f;
+}
+
+.choice-button.wrong-choice {
+  border-color: #a84040;
+  background: #f8dfdf;
+  color: #7d2525;
+}
+
+.feedback {
+  min-height: 54px;
+  margin-top: 16px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+.feedback.correct {
+  color: #176b3a;
+}
+
+.feedback.incorrect {
+  color: #9b3030;
+}
+
+.rule-box {
+  margin-top: 8px;
+  border-top: 1px solid #d9e0e5;
+  padding-top: 12px;
+  color: #3e4e5a;
+}
+
+.rule-box summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.rule-box ul {
+  padding-left: 22px;
+  line-height: 1.45;
+}
+
+.restart {
+  align-self: flex-start;
+  margin-top: 18px;
+  padding: 12px 18px;
+  border: 2px solid #315d7b;
+  border-radius: 12px;
+  background: transparent;
+  color: #315d7b;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.factory {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.factory-wall {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255,255,255,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px),
+    linear-gradient(#607481 0%, #40535f 76%, #29383f 76%, #1f2b31 100%);
+  background-size: 44px 28px, 88px 28px, auto;
+}
+
+.window {
+  position: absolute;
+  top: 9%;
+  width: 110px;
+  height: 78px;
+  border: 10px solid #293b45;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a8d5eb, #d9eef7);
+  box-shadow: inset 0 0 0 3px #718995;
+}
+
+.window::before,
+.window::after {
+  content: "";
+  position: absolute;
+  background: #718995;
+}
+
+.window::before {
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.window::after {
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 4px;
+  transform: translateY(-50%);
+}
+
+.window-one {
+  left: 8%;
+}
+
+.window-two {
+  right: 8%;
+}
+
+.machine {
+  position: absolute;
+  left: 50%;
+  top: 24%;
+  width: 230px;
+  transform: translateX(-50%);
+}
+
+.machine-top {
+  width: 155px;
+  height: 38px;
+  margin: 0 auto;
+  border-radius: 12px 12px 0 0;
+  background: #26363e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.light {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #77868d;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.25);
+}
+
+.light-one.active {
+  background: #8fdb8c;
+}
+
+.light-two.active {
+  background: #f2d56d;
+}
+
+.light-three.active {
+  background: #ec8b82;
+}
+
+.machine-body {
+  position: relative;
+  height: 190px;
+  border: 8px solid #26363e;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #b8c4ca, #71838c);
+  box-shadow: inset -18px -18px 0 rgba(32,49,57,0.14);
+}
+
+.machine-display {
+  width: 128px;
+  margin: 23px auto 0;
+  padding: 10px;
+  border: 5px solid #26363e;
+  border-radius: 8px;
+  background: #d8edce;
+  text-align: center;
+  color: #243622;
+}
+
+.machine-display span {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.machine-display strong {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 2.2rem;
+}
+
+.machine-slot {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  width: 105px;
+  height: 25px;
+  border-radius: 5px;
+  background: #26363e;
+  transform: translateX(-50%);
+}
+
+.conveyor {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 24%;
+  height: 84px;
+  border: 8px solid #202c32;
+  border-radius: 14px;
+  background: #485861;
+  overflow: visible;
+}
+
+.belt-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 42px,
+    rgba(255,255,255,0.13) 42px 48px
+  );
+}
+
+.roller {
+  position: absolute;
+  bottom: -25px;
+  width: 38px;
+  height: 38px;
+  border: 7px solid #202c32;
+  border-radius: 50%;
+  background: #8a989f;
+}
+
+.roller-one { left: 5%; }
+.roller-two { left: 34%; }
+.roller-three { right: 34%; }
+.roller-four { right: 5%; }
+
+.crate-track {
+  position: absolute;
+  inset: 0;
+}
+
+.crate {
+  position: absolute;
+  left: 47%;
+  bottom: 52px;
+  width: 62px;
+  height: 54px;
+  border: 5px solid #704a27;
+  border-radius: 4px;
+  background:
+    linear-gradient(45deg, transparent 43%, rgba(92,58,28,0.42) 44% 50%, transparent 51%),
+    linear-gradient(-45deg, transparent 43%, rgba(92,58,28,0.42) 44% 50%, transparent 51%),
+    #b77b3e;
+  box-shadow: inset 0 0 0 4px rgba(255,255,255,0.12);
+  animation: crateMove 850ms ease forwards;
+}
+
+.crate::after {
+  content: "SIG";
+  position: absolute;
+  inset: 14px 8px auto;
+  border: 2px solid rgba(74,45,20,0.66);
+  background: rgba(255,255,255,0.4);
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+@keyframes crateMove {
+  0% {
+    transform: translateX(-35px) translateY(-82px) scale(0.65);
+    opacity: 0;
+  }
+  28% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(195px) translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.machine.processing .machine-body {
+  animation: machineBounce 420ms ease;
+}
+
+@keyframes machineBounce {
+  0%, 100% { transform: translateY(0); }
+  35% { transform: translateY(5px); }
+  65% { transform: translateY(-3px); }
+}
+
+.truck {
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+  width: 245px;
+  height: 116px;
+  transition: transform 1300ms ease-in;
+}
+
+.truck-box {
+  position: absolute;
+  left: 0;
+  bottom: 28px;
+  width: 150px;
+  height: 78px;
+  border: 6px solid #26363e;
+  border-radius: 8px 4px 4px 8px;
+  background: #d6a343;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.truck-box span {
+  padding: 7px 11px;
+  border: 3px solid #7d5b20;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.48);
+  font-family: "Courier New", monospace;
+  font-weight: 800;
+}
+
+.truck-cab {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+  width: 96px;
+  height: 68px;
+  border: 6px solid #26363e;
+  border-radius: 8px 18px 6px 4px;
+  background: #4b8fa8;
+}
+
+.truck-window {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 47px;
+  height: 29px;
+  border: 4px solid #26363e;
+  border-radius: 4px 11px 3px 3px;
+  background: #b7def0;
+}
+
+.wheel {
+  position: absolute;
+  bottom: 7px;
+  width: 42px;
+  height: 42px;
+  border: 9px solid #172126;
+  border-radius: 50%;
+  background: #829198;
+}
+
+.wheel-one { left: 36px; }
+.wheel-two { right: 28px; }
+
+.truck.depart {
+  transform: translateX(150%);
+}
+
+.floor {
+  position: absolute;
+  inset: 76% 0 0;
+  border-top: 5px solid #172126;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04) 0 60px,
+      rgba(0,0,0,0.05) 60px 120px
+    ),
+    #28373e;
+}
+
+.progress-message {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  width: min(90%, 520px);
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  text-align: center;
+  font-weight: 800;
+  z-index: 4;
+}
+
+@media (max-width: 880px) {
+  .game-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .factory {
+    min-height: 520px;
+  }
+
+  .control-panel {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .choices {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .problem {
+    font-size: 2rem;
+  }
+
+  .machine {
+    transform: translateX(-50%) scale(0.86);
+  }
+
+  .truck {
+    right: -25px;
+    transform: scale(0.8);
+    transform-origin: right bottom;
+  }
+
+  .truck.depart {
+    transform: translateX(180%) scale(0.8);
+  }
+}

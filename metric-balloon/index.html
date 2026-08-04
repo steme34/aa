@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metric Balloon v1.2</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../shared/navigation.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <section class="game-panel" aria-labelledby="game-title">
+      <p class="eyebrow">Chemistry Skills Practice</p>
+      <h1 id="game-title">Metric Balloon</h1>
+      <p class="instructions">
+        Convert the measurement. Each correct answer adds air and lifts the balloon.
+      </p>
+
+      <div class="score-row">
+        <span>Correct: <strong id="score">0</strong>/10</span>
+        <span>Question: <strong id="question-number">1</strong></span>
+      </div>
+
+      <div class="problem-card">
+        <p class="prompt-label">Convert:</p>
+        <p id="problem" class="problem">Loading…</p>
+
+        <form id="answer-form" novalidate>
+          <label for="answer">Numerical answer</label>
+          <div class="answer-row">
+            <input
+              id="answer"
+              name="answer"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              aria-describedby="target-unit"
+              required
+            />
+            <span id="target-unit" class="unit"></span>
+          </div>
+          <button id="submit-button" type="submit">Check Answer</button>
+        </form>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <button id="next-button" class="secondary hidden" type="button">Next Problem</button>
+      </div>
+
+      <button id="restart-button" class="restart" type="button">Restart Game</button>
+    </section>
+
+    <section class="scene" aria-label="Balloon progress scene">
+      <div class="sky">
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div id="balloon-wrap" class="balloon-wrap">
+          <div id="balloon" class="balloon">
+            <div class="shine"></div>
+          </div>
+          <div class="knot"></div>
+          <div class="string"></div>
+          <div class="basket"></div>
+        </div>
+        <div class="ground"></div>
+      </div>
+      <p id="progress-message" class="progress-message">Fill the balloon with 10 correct answers.</p>
+    </section>
+  </main>
+
+  <script src="../shared/academy.js" data-academy-href="../index.html"></script>
+  <script src="script.js"></script>
+  <script src="../shared/navigation.js" data-academy-href="../index.html"></script>
+</body>
+</html>

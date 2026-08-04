@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#15263d" />
+  <title>Scientific Notation Campaign</title>
+  <link rel="stylesheet" href="shared/shared.css" />
+  <link rel="stylesheet" href="../shared/navigation.css" />
+</head>
+<body class="campaign-page">
+  <main class="campaign-shell">
+    <header class="campaign-hero">
+      <p class="campaign-eyebrow">Chemistry Skills Academy</p>
+      <h1>Scientific Notation</h1>
+      <p class="campaign-intro">
+        Practice both complementary directions of scientific notation. Choose either mission first and replay either one at any time.
+      </p>
+    </header>
+
+    <section class="mission-grid" aria-label="Scientific notation missions">
+      <article class="mission-card mission-speedway">
+        <div class="mission-number">Mission 1</div>
+        <div class="mission-art" aria-hidden="true">🏎️</div>
+        <h2>Scientific Notation Speedway</h2>
+        <p class="mission-direction">Ordinary Number → Scientific Notation</p>
+        <p>Convert ordinary decimal values into coefficient × 10<sup>exponent</sup> form.</p>
+        <div id="mission1-status" class="mission-status" aria-live="polite">Not Completed</div>
+        <a class="play-button" href="mission1/index.html">Play Mission 1</a>
+      </article>
+
+      <article class="mission-card mission-dash">
+        <div class="mission-number">Mission 2</div>
+        <div class="mission-art" aria-hidden="true">🏃</div>
+        <h2>100 Meter Dash</h2>
+        <p class="mission-direction">Scientific Notation → Ordinary Number</p>
+        <p>Convert coefficient × 10<sup>exponent</sup> values into complete ordinary decimal notation.</p>
+        <div id="mission2-status" class="mission-status" aria-live="polite">Not Completed</div>
+        <a class="play-button" href="mission2/index.html">Play Mission 2</a>
+      </article>
+    </section>
+
+    <section id="campaign-complete" class="campaign-complete" aria-live="polite" hidden>
+      <div class="stars" aria-hidden="true">⭐⭐</div>
+      <strong>Scientific Notation Campaign Complete</strong>
+      <div class="stars" aria-hidden="true">⭐⭐</div>
+      <p>You completed both directions of scientific notation during this browser session.</p>
+    </section>
+  </main>
+
+  <script src="../shared/academy.js" data-academy-href="../index.html"></script>
+  <script src="shared/shared.js"></script>
+  <script>
+    ScientificNotationCampaign.renderHub();
+    if (ScientificNotationCampaign.isCampaignComplete()) {
+      window.setTimeout(() => Academy.completeActivity("scientific-notation"), 2600);
+    }
+  </script>
+  <script src="../shared/navigation.js" data-academy-href="../index.html"></script>
+</body>
+</html>

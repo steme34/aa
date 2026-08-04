@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientific Notation Speedway v1</title>
+  <link rel="stylesheet" href="../shared/shared.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../shared/navigation.css" />
+</head>
+<body>
+  <a class="campaign-return" href="../index.html" aria-label="Return to Scientific Notation campaign">← Return to Campaign</a>
+  <main class="game-shell">
+    <section class="control-panel" aria-labelledby="game-title">
+      <p class="eyebrow">Chemistry Skills Practice</p>
+      <h1 id="game-title">Scientific Notation Speedway</h1>
+      <p class="instructions">
+        Rewrite each number in scientific notation. Every correct answer moves your car closer to the finish line.
+      </p>
+
+      <div class="score-row">
+        <span>Correct: <strong id="score">0</strong>/10</span>
+        <span>Problem: <strong id="question-number">1</strong></span>
+      </div>
+
+      <section class="problem-card">
+        <p class="prompt-label">Write in scientific notation:</p>
+        <p id="problem" class="problem">Loading…</p>
+
+        <div class="notation-entry" aria-label="Scientific notation answer">
+          <label class="field">
+            <span>Coefficient</span>
+            <input id="coefficient" type="text" inputmode="decimal" autocomplete="off" />
+          </label>
+
+          <span class="times">× 10</span>
+
+          <label class="field exponent-field">
+            <span>Exponent</span>
+            <input id="exponent" type="text" inputmode="numeric" autocomplete="off" />
+          </label>
+        </div>
+
+        <button id="submit-button" type="button">Check Answer</button>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+
+        <details class="rule-box">
+          <summary>Scientific notation reminder</summary>
+          <p>
+            The coefficient must be at least 1 but less than 10. The exponent tells how many places the decimal moved.
+          </p>
+        </details>
+      </section>
+
+      <button id="restart-button" class="restart" type="button">Restart Race</button>
+    </section>
+
+    <section class="race-scene" aria-label="Race progress animation">
+      <div class="sky">
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div class="sun"></div>
+      </div>
+
+      <div class="grandstand">
+        <div class="crowd"></div>
+      </div>
+
+      <div class="track">
+        <div class="lane-markers"></div>
+        <div id="car" class="car">
+          <div class="car-body">
+            <div class="car-window"></div>
+            <span class="car-number">10</span>
+          </div>
+          <div class="wheel wheel-left"></div>
+          <div class="wheel wheel-right"></div>
+        </div>
+
+        <div class="finish-line">
+          <div class="finish-banner">FINISH</div>
+        </div>
+      </div>
+
+      <div class="progress-strip">
+        <span>START</span>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span>FINISH</span>
+      </div>
+
+      <p id="progress-message" class="progress-message">
+        Get 10 correct answers to finish the race.
+      </p>
+    </section>
+  </main>
+
+  <script src="../../shared/academy.js" data-academy-href="../../index.html"></script>
+  <script src="../shared/shared.js"></script>
+  <script src="script.js"></script>
+  <script src="../../shared/navigation.js" data-academy-href="../../index.html" data-campaign-href="../index.html"></script>
+</body>
+</html>

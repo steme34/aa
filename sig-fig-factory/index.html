@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sig Fig Factory v1</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../shared/navigation.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <section class="control-panel" aria-labelledby="game-title">
+      <p class="eyebrow">Chemistry Skills Practice</p>
+      <h1 id="game-title">Sig Fig Factory</h1>
+      <p class="instructions">
+        Inspect each measurement and decide how many significant figures it contains.
+        Every correct answer packages one crate for shipment.
+      </p>
+
+      <div class="score-row">
+        <span>Crates packed: <strong id="score">0</strong>/10</span>
+        <span>Problem: <strong id="question-number">1</strong></span>
+      </div>
+
+      <section class="problem-card" aria-labelledby="problem-label">
+        <p id="problem-label" class="prompt-label">How many significant figures?</p>
+        <p id="problem" class="problem">Loading…</p>
+
+        <div id="choices" class="choices" role="group" aria-label="Answer choices"></div>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+
+        <details class="rule-box">
+          <summary>Sig fig rules</summary>
+          <ul>
+            <li>All nonzero digits are significant.</li>
+            <li>Zeros between significant digits are significant.</li>
+            <li>Leading zeros are not significant.</li>
+            <li>Trailing zeros after a decimal point are significant.</li>
+            <li>In scientific notation, count digits in the coefficient only.</li>
+          </ul>
+        </details>
+      </section>
+
+      <button id="restart-button" class="restart" type="button">Restart Factory</button>
+    </section>
+
+    <section class="factory" aria-label="Factory progress animation">
+      <div class="factory-wall">
+        <div class="window window-one"></div>
+        <div class="window window-two"></div>
+
+        <div class="machine">
+          <div class="machine-top">
+            <span class="light light-one"></span>
+            <span class="light light-two"></span>
+            <span class="light light-three"></span>
+          </div>
+          <div class="machine-body">
+            <div class="machine-display">
+              <span>PACKED</span>
+              <strong id="machine-count">0</strong>
+            </div>
+            <div class="machine-slot"></div>
+          </div>
+        </div>
+
+        <div class="conveyor">
+          <div class="belt-lines"></div>
+          <div id="crate-track" class="crate-track" aria-hidden="true"></div>
+          <div class="roller roller-one"></div>
+          <div class="roller roller-two"></div>
+          <div class="roller roller-three"></div>
+          <div class="roller roller-four"></div>
+        </div>
+
+        <div id="truck" class="truck" aria-hidden="true">
+          <div class="truck-box">
+            <span id="truck-label">0/10</span>
+          </div>
+          <div class="truck-cab">
+            <div class="truck-window"></div>
+          </div>
+          <div class="wheel wheel-one"></div>
+          <div class="wheel wheel-two"></div>
+        </div>
+
+        <div class="floor"></div>
+      </div>
+
+      <p id="progress-message" class="progress-message">
+        Pack 10 crates to send the truck.
+      </p>
+    </section>
+  </main>
+
+  <script src="../shared/academy.js" data-academy-href="../index.html"></script>
+  <script src="script.js"></script>
+  <script src="../shared/navigation.js" data-academy-href="../index.html"></script>
+</body>
+</html>
