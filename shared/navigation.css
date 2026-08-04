@@ -1,0 +1,197 @@
+:root {
+  --academy-nav-height: 76px;
+  --academy-nav-blue: #0759a8;
+  --academy-nav-deep: #073d78;
+  --academy-nav-light: #eaf5ff;
+}
+
+.academy-integrated {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.academy-navigation {
+  position: relative;
+  z-index: 1000;
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: var(--academy-nav-height);
+  color: #fff;
+  background:
+    radial-gradient(circle at 72% -40%, rgba(75, 188, 255, .45), transparent 42%),
+    linear-gradient(135deg, var(--academy-nav-blue), var(--academy-nav-deep));
+  box-shadow: 0 5px 18px rgba(5, 42, 82, .2);
+}
+
+.academy-navigation__inner {
+  width: min(100%, 1680px);
+  min-height: var(--academy-nav-height);
+  margin: 0 auto;
+  padding: 10px clamp(14px, 2.5vw, 34px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.academy-navigation__links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.academy-navigation__button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 10px 17px;
+  border: 2px solid rgba(255,255,255,.88);
+  border-radius: 14px;
+  color: #fff;
+  background: rgba(255,255,255,.08);
+  text-decoration: none;
+  font: 850 .92rem/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  box-shadow: inset 0 1px rgba(255,255,255,.15);
+  transition: background .16s ease, color .16s ease, transform .16s ease;
+}
+
+.academy-navigation__button:hover,
+.academy-navigation__button:focus-visible {
+  color: var(--academy-nav-deep);
+  background: #fff;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.academy-navigation__home {
+  font-size: 1.45rem;
+  line-height: .8;
+}
+
+.academy-navigation__identity {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 11px;
+  text-align: right;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.academy-navigation__identity strong,
+.academy-navigation__identity small {
+  display: block;
+}
+
+.academy-navigation__identity strong {
+  font-size: .98rem;
+  letter-spacing: .035em;
+}
+
+.academy-navigation__identity small {
+  margin-top: 2px;
+  color: rgba(255,255,255,.76);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.academy-navigation__mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #07529b;
+  background: #fff;
+  font-size: 1.35rem;
+  box-shadow: 0 5px 14px rgba(0,0,0,.14);
+}
+
+.academy-integrated > .game-shell,
+.academy-integrated > main.game-shell {
+  flex: 1 1 auto;
+  min-height: calc(100vh - var(--academy-nav-height));
+}
+
+/* Preserve the original two-panel presentation after Academy integration. */
+@media (min-width: 881px) {
+  .academy-integrated .game-shell {
+    height: calc(100vh - var(--academy-nav-height));
+    min-height: 650px;
+    overflow: hidden;
+  }
+
+  .academy-integrated .control-panel,
+  .academy-integrated .game-panel,
+  .academy-integrated .learning-panel {
+    min-width: 0;
+    overflow-y: auto;
+  }
+
+  .academy-integrated .factory,
+  .academy-integrated .scene,
+  .academy-integrated .race-scene,
+  .academy-integrated .track-scene,
+  .academy-integrated .rocket-panel {
+    min-height: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  :root { --academy-nav-height: auto; }
+
+  .academy-navigation__inner {
+    padding: 9px 12px;
+  }
+
+  .academy-navigation__identity {
+    display: none;
+  }
+
+  .academy-navigation__links {
+    width: 100%;
+  }
+
+  .academy-navigation__button {
+    flex: 1 1 150px;
+    min-height: 44px;
+    padding: 9px 12px;
+    font-size: .82rem;
+  }
+
+  .academy-integrated > .game-shell,
+  .academy-integrated > main.game-shell {
+    min-height: 0;
+  }
+}
+
+/* Rocket Fuel panels contain vertically stacked cards that must retain their
+   natural height. The learning panel itself scrolls when needed instead of
+   shrinking and clipping the question content. */
+@media (min-width: 881px) {
+  .academy-integrated .learning-panel > * {
+    flex-shrink: 0;
+  }
+
+  .academy-integrated .learning-panel .question-card,
+  .academy-integrated .learning-panel .answer-grid,
+  .academy-integrated .learning-panel .feedback,
+  .academy-integrated .learning-panel .progress-card,
+  .academy-integrated .learning-panel .brand-block {
+    flex: 0 0 auto;
+  }
+}
+
+
+.academy-navigation__sound { border-style: dashed; }
+.feedback.correct, .correct-feedback { animation: academy-success-pop .38s ease both; }
+.feedback.incorrect, .incorrect-feedback { animation: academy-error-shake .32s ease both; }
+@keyframes academy-success-pop { 0% { transform: scale(.97); opacity:.65; } 55% { transform: scale(1.025); } 100% { transform: scale(1); opacity:1; } }
+@keyframes academy-error-shake { 0%,100% { transform:translateX(0); } 30% { transform:translateX(-5px); } 65% { transform:translateX(5px); } }
+@media (prefers-reduced-motion: reduce) { .feedback.correct, .correct-feedback, .feedback.incorrect, .incorrect-feedback { animation:none; } }
