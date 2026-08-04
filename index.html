@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071b2f" />
+  <title>Chemistry Skills Academy</title>
+  <link rel="stylesheet" href="shared/academy.css" />
+</head>
+<body>
+  <main class="academy-shell">
+    <header class="academy-hero">
+      <div class="academy-emblem" aria-hidden="true">⚗</div>
+      <p class="eyebrow">Interactive Chemistry Practice</p>
+      <h1>CHEMISTRY SKILLS ACADEMY</h1>
+      <p class="subtitle">Choose Your Training</p>
+
+      <section class="academy-progress" aria-labelledby="academy-progress-title">
+        <p id="academy-progress-title" class="academy-progress__title">Academy Progress</p>
+        <strong id="academy-progress-count">0 of 4 Activities Completed</strong>
+        <span id="academy-progress-percent">0% Complete</span>
+        <div class="academy-progress__track" aria-hidden="true">
+          <div id="academy-progress-fill" class="academy-progress__fill"></div>
+        </div>
+      </section>
+
+      <section id="certificate-claim" class="certificate-claim" aria-labelledby="certificate-claim-title" hidden>
+        <div class="certificate-claim__icon" aria-hidden="true">🏆</div>
+        <div class="certificate-claim__copy">
+          <p class="certificate-claim__eyebrow">Academy Complete</p>
+          <h2 id="certificate-claim-title">Create Your Completion Certificate</h2>
+          <p>Enter the student name exactly as it should appear on the certificate.</p>
+        </div>
+        <form id="certificate-form" class="certificate-form">
+          <label for="student-name">Student Name</label>
+          <div class="certificate-form__row">
+            <input id="student-name" name="studentName" type="text" maxlength="70" autocomplete="name" placeholder="Enter student name" required />
+            <button type="submit">Generate Certificate</button>
+          </div>
+          <p id="certificate-name-error" class="certificate-form__error" role="alert" hidden>Please enter a student name.</p>
+        </form>
+      </section>
+    </header>
+
+    <section class="training-grid" aria-label="Available chemistry training activities">
+      <article class="training-card balloon-card" data-activity-id="metric-balloon">
+        <div class="completion-ribbon" hidden>✓ Completed</div>
+        <div class="activity-icon" aria-hidden="true">🎈</div>
+        <div class="card-copy">
+          <p class="activity-type">Single Game</p>
+          <h2>Metric Balloon</h2>
+          <p>Practice metric conversions across length, mass, and volume while lifting the balloon.</p>
+        </div>
+        <a class="play-button" href="metric-balloon/index.html">Play</a>
+      </article>
+
+      <article class="training-card factory-card" data-activity-id="sig-fig-factory">
+        <div class="completion-ribbon" hidden>✓ Completed</div>
+        <div class="activity-icon" aria-hidden="true">🏭</div>
+        <div class="card-copy">
+          <p class="activity-type">Single Game</p>
+          <h2>Sig Fig Factory</h2>
+          <p>Identify significant figures and pack ten correct measurements for shipment.</p>
+        </div>
+        <a class="play-button" href="sig-fig-factory/index.html">Play</a>
+      </article>
+
+      <article class="training-card science-card" data-activity-id="scientific-notation">
+        <div class="completion-ribbon" hidden>⭐ Campaign Complete</div>
+        <div class="activity-icon" aria-hidden="true">🔬</div>
+        <div class="card-copy">
+          <p class="activity-type">Two-Mission Campaign</p>
+          <h2>Scientific Notation</h2>
+          <p>Practice both directions: ordinary numbers to scientific notation and back again.</p>
+        </div>
+        <a class="play-button" href="scientific-notation/index.html">Play</a>
+      </article>
+
+      <article class="training-card rocket-card" data-activity-id="rocket-fuel">
+        <div class="completion-ribbon" hidden>⭐ Campaign Complete</div>
+        <div class="activity-icon" aria-hidden="true">🚀</div>
+        <div class="card-copy">
+          <p class="activity-type">Three-Mission Campaign</p>
+          <h2>Rocket Fuel</h2>
+          <p>Progress from selecting conversion factors to complete dimensional-analysis calculations.</p>
+        </div>
+        <a class="play-button" href="rocket-fuel/index.html">Play</a>
+      </article>
+    </section>
+  </main>
+
+  <div id="certificate-overlay" class="certificate-overlay" hidden>
+    <section class="certificate-window" role="dialog" aria-modal="true" aria-labelledby="certificate-title">
+      <div class="certificate-actions no-print">
+        <button id="certificate-close" class="certificate-action certificate-action--secondary" type="button">Close</button>
+        <button id="certificate-print" class="certificate-action" type="button">Print / Save as PDF</button>
+      </div>
+
+      <article id="completion-certificate" class="completion-certificate">
+        <div class="certificate-border">
+          <div class="certificate-emblem" aria-hidden="true">⚗</div>
+          <p class="certificate-kicker">Chemistry Skills Academy</p>
+          <h2 id="certificate-title">Certificate of Completion</h2>
+          <p class="certificate-presented">This certificate is proudly presented to</p>
+          <p id="certificate-student-name" class="certificate-student-name">Student Name</p>
+          <div class="certificate-name-line"></div>
+          <p class="certificate-achievement">for successfully completing all four Chemistry Skills Academy activities</p>
+          <div class="certificate-activities" aria-label="Completed activities">
+            <span>Metric Balloon</span>
+            <span>Sig Fig Factory</span>
+            <span>Scientific Notation</span>
+            <span>Rocket Fuel</span>
+          </div>
+          <div class="certificate-footer">
+            <div>
+              <strong id="certificate-date">Completion Date</strong>
+              <span>Date Completed</span>
+            </div>
+            <div class="certificate-seal" aria-hidden="true">
+              <span>100%</span>
+              <small>COMPLETE</small>
+            </div>
+            <div>
+              <strong>Chemistry Skills Academy</strong>
+              <span>Interactive Skills Training</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <script src="shared/academy.js"></script>
+</body>
+</html>
