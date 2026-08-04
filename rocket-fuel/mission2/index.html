@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071426" />
+  <title>Rocket Fuel II – Mission 2: Fuel Line Assembly</title>
+  <link rel="stylesheet" href="../shared/shared.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../shared/navigation.css" />
+</head>
+<body>
+  <main class="game-shell" aria-live="polite">
+    <section class="learning-panel" aria-label="Fuel line assembly challenge">
+      <header class="brand-block">
+        <div class="academy-mark" aria-hidden="true">⚗</div>
+        <div>
+          <p class="eyebrow">Chemistry Skills Academy</p>
+          <h1>Rocket Fuel II</h1>
+          <p class="mission-label">Mission 2: Fuel Line Assembly</p>
+        </div>
+      </header>
+
+      <div class="progress-card">
+        <div class="progress-copy">
+          <span>Mission Progress</span>
+          <strong id="progressText">0 / 10 fuel lines</strong>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <section class="question-card" aria-labelledby="questionHeading">
+        <p id="familyBadge" class="family-badge">Length</p>
+        <h2 id="questionHeading">Assemble the fuel line</h2>
+        <div class="prompt-stack">
+          <span class="prompt-label">Convert</span>
+          <strong id="sourceDisplay" class="source-display">450 cm</strong>
+          <span class="arrow" aria-hidden="true">↓</span>
+          <strong id="targetDisplay" class="target-display">m</strong>
+        </div>
+
+        <div class="fuel-line-status" aria-label="Fuel line assembly status">
+          <div class="fuel-line-heading">
+            <span id="stepText">Conversion factor 1 of 1</span>
+            <strong id="currentUnitText">Cancel cm</strong>
+          </div>
+          <div id="fuelLinePath" class="fuel-line-path"></div>
+        </div>
+
+        <p id="instructionText" class="instruction">
+          Choose the factor that cancels the current unit and continues toward the target unit.
+        </p>
+      </section>
+
+      <section id="answerGrid" class="answer-grid" aria-label="Conversion factor choices"></section>
+
+      <div id="feedback" class="feedback" role="status" aria-live="assertive"></div>
+    </section>
+
+    <section class="rocket-panel" aria-label="Rocket fuel progress">
+      <div class="sky-glow" aria-hidden="true"></div>
+      <div id="countdown" class="countdown" aria-hidden="true"></div>
+      <div id="missionComplete" class="mission-complete" aria-hidden="true">
+        <span>Mission Complete</span>
+        <button id="playAgainButton" type="button">Launch Another Mission</button>
+      </div>
+
+      <div class="rocket-stage">
+        <div id="rocket" class="rocket" aria-hidden="true">
+          <div class="rocket-nose"></div>
+          <div class="rocket-body">
+            <div class="window"></div>
+            <div class="rocket-badge">CSA</div>
+          </div>
+          <div class="fin fin-left"></div>
+          <div class="fin fin-right"></div>
+          <div class="engine"></div>
+          <div class="flame"></div>
+        </div>
+
+        <div id="smokeCloud" class="smoke-cloud" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="launch-pad" aria-hidden="true">
+          <div class="pad-top"></div>
+          <div class="pad-base"></div>
+        </div>
+      </div>
+
+      <aside class="fuel-console" aria-label="Fuel gauge">
+        <div class="tank-label">MISSION FUEL</div>
+        <div class="fuel-tank">
+          <div id="fuelLiquid" class="fuel-liquid"></div>
+          <div class="tank-shine"></div>
+          <div class="tank-marks" aria-hidden="true">
+            <span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+          </div>
+        </div>
+        <div class="gauge-row">
+          <div class="gauge-shell" aria-hidden="true">
+            <div id="gaugeNeedle" class="gauge-needle"></div>
+            <div class="gauge-center"></div>
+          </div>
+          <strong id="fuelPercent">0%</strong>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../shared/campaign.js"></script>
+  <script>RocketFuelCampaign.initializeMission(2);</script>
+  <script src="conversionEngine.js"></script>
+  <script src="script.js"></script>
+  <script src="../../shared/navigation.js" data-academy-href="../../index.html" data-campaign-href="../index.html"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071426" />
+  <title>Rocket Fuel Campaign</title>
+  <link rel="stylesheet" href="shared/shared.css" />
+  <link rel="stylesheet" href="shared/hub.css" />
+  <link rel="stylesheet" href="../shared/navigation.css" />
+</head>
+<body>
+  <main class="campaign-shell">
+    <header class="campaign-hero">
+      <div class="academy-mark" aria-hidden="true">⚗</div>
+      <p class="eyebrow">Chemistry Skills Academy</p>
+      <h1>Rocket Fuel</h1>
+      <p class="campaign-subtitle">Complete all three missions to prepare the rocket for launch.</p>
+      <div id="campaignComplete" class="campaign-complete-banner" hidden>⭐⭐⭐ Rocket Fuel Campaign Complete ⭐⭐⭐</div>
+    </header>
+
+    <section class="mission-grid" aria-label="Rocket Fuel missions">
+      <article class="mission-card" data-mission="1">
+        <div class="mission-number">Mission 1</div>
+        <h2>Fuel Selection</h2>
+        <p>Identify the conversion factor that cancels the starting unit and leaves the target unit.</p>
+        <div class="mission-status" id="status1">Available</div>
+        <a id="play1" class="play-button" href="mission1/index.html">Play Mission 1</a>
+      </article>
+
+      <article class="mission-card" data-mission="2">
+        <div class="mission-number">Mission 2</div>
+        <h2>Fuel Line Assembly</h2>
+        <p>Build the dimensional-analysis pathway one correctly arranged conversion factor at a time.</p>
+        <div class="mission-status" id="status2">Locked</div>
+        <a id="play2" class="play-button" href="mission2/index.html" aria-disabled="true">Locked</a>
+      </article>
+
+      <article class="mission-card" data-mission="3">
+        <div class="mission-number">Mission 3</div>
+        <h2>Launch Calculation</h2>
+        <p>Complete the final dimensional-analysis calculations and authorize the launch.</p>
+        <div class="mission-status" id="status3">Locked</div>
+        <a id="play3" class="play-button" href="mission3/index.html" aria-disabled="true">Locked</a>
+      </article>
+    </section>
+
+    <section class="campaign-rocket" aria-label="Rocket Fuel campaign artwork">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="hub-rocket" aria-hidden="true">
+        <div class="hub-nose"></div>
+        <div class="hub-body"><div class="hub-window"></div><div class="hub-badge">CSA</div></div>
+        <div class="hub-fin hub-fin-left"></div><div class="hub-fin hub-fin-right"></div><div class="hub-engine"></div><div class="hub-flame"></div>
+      </div>
+      <div class="hub-pad" aria-hidden="true"><div class="hub-pad-top"></div><div class="hub-pad-base"></div></div>
+    </section>
+  </main>
+  <script src="../shared/academy.js" data-academy-href="../index.html"></script>
+  <script src="shared/campaign.js"></script>
+  <script src="shared/hub.js"></script>
+  <script src="../shared/navigation.js" data-academy-href="../index.html"></script>
+</body>
+</html>

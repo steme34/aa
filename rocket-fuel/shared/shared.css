@@ -1,0 +1,35 @@
+
+:root {
+  --campaign-navy: #071426;
+  --campaign-blue: #3189ff;
+  --campaign-cyan: #42d7ff;
+  --campaign-green: #3ee88f;
+  --campaign-gold: #ffc857;
+  --campaign-paper: #f7fbff;
+  --campaign-ink: #10213a;
+}
+
+.campaign-return {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  width: fit-content;
+  border: 0;
+  border-radius: 999px;
+  padding: .72rem 1rem;
+  color: #0a3157;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 8px 22px rgba(9,43,76,.14);
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
+}
+.campaign-return:hover,
+.campaign-return:focus-visible { transform: translateY(-1px); outline: 3px solid rgba(49,137,255,.25); }
+.campaign-return-wrap { margin-bottom: 2px; }
+.mission-complete .campaign-complete-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+.mission-complete .campaign-home-button {
+  border:0; border-radius:999px; padding:15px 24px; color:#07233e;
+  background:linear-gradient(135deg,#fff0a8,#ffc857); font-weight:900; cursor:pointer;
+  box-shadow:0 12px 30px rgba(255,200,87,.28);
+}
